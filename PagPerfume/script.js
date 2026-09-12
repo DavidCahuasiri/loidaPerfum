@@ -2,7 +2,7 @@
 lucide.createIcons();
 
 // Configuración de WhatsApp
-const WHATSAPP_PHONE = "59167750503";
+const WHATSAPP_PHONE = "59175685568";
 
 /**
  * Función para armar y enviar el mensaje detallado por WhatsApp
