@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loida Puma — Perfumería & Fragancias</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Archivo CSS Externo -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-stone-50 text-stone-800 font-sans antialiased min-h-screen flex flex-col justify-between">
+
+  <!-- Header / Hero Section -->
+  <header class="relative overflow-hidden border-b border-amber-400/30 bg-stone-900 py-16 px-6 text-center shadow-md">
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-amber-500/15 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="relative z-10 max-w-3xl mx-auto">
+      <span class="text-amber-400 text-xs font-bold tracking-[0.3em] uppercase mb-2 block">Colección Exclusiva</span>
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-serif font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-400 to-amber-100 tracking-wide mb-4">
+        Loida Puma
+      </h1>
+      <p class="text-stone-300 max-w-xl mx-auto text-sm sm:text-base leading-relaxed mb-6 font-light">
+        Fragancias finas seleccionadas para resaltar tu presencia. Elige tu aroma favorito y realiza tu pedido directamente por WhatsApp.
+      </p>
+
+      <div class="flex items-center justify-center gap-2 text-xs text-amber-300 bg-amber-950/60 border border-amber-500/40 rounded-full px-4 py-1.5 w-fit mx-auto backdrop-blur-md shadow-inner">
+        <i data-lucide="sparkles" class="w-3.5 h-3.5 text-amber-400"></i>
+        <span>Atención y asesoría personalizada por Loida Puma</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Contenedor Principal -->
+  <main class="max-w-7xl mx-auto px-6 py-12 flex-grow w-full">
+
+    <!-- Buscador y Filtros -->
+    <div class="mb-12 space-y-6">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4 border-b border-stone-200 pb-6">
+        <div>
+          <h2 class="text-2xl font-serif font-bold text-stone-900 flex items-center gap-2">
+            Catálogo de Fragancias
+          </h2>
+          <p class="text-xs text-stone-500 mt-1">Explora nuestras familias olfativas</p>
+        </div>
+
+        <div class="relative w-full md:w-80">
+          <input type="text" id="searchInput" placeholder="Buscar por nombre, nota o aroma..." class="w-full bg-white border border-stone-300 text-stone-800 text-sm rounded-xl pl-10 pr-4 py-2.5 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition duration-300 shadow-sm placeholder-stone-400">
+          <i data-lucide="search" class="w-4 h-4 text-stone-400 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
+        </div>
+      </div>
+
+      <!-- Botones de Filtro -->
+      <div class="flex flex-wrap gap-2" id="filterButtons">
+        <button data-filter="all" class="filter-btn active text-xs font-semibold px-4 py-2 rounded-full border transition duration-300">Todos</button>
+        <button data-filter="dulce" class="filter-btn text-xs font-semibold px-4 py-2 rounded-full border border-stone-300 text-stone-600 hover:text-stone-900 hover:border-amber-500 transition duration-300">Dulces / Cálidos</button>
+        <button data-filter="fresco" class="filter-btn text-xs font-semibold px-4 py-2 rounded-full border border-stone-300 text-stone-600 hover:text-stone-900 hover:border-amber-500 transition duration-300">Frescos / Cítricos</button>
+        <button data-filter="floral" class="filter-btn text-xs font-semibold px-4 py-2 rounded-full border border-stone-300 text-stone-600 hover:text-stone-900 hover:border-amber-500 transition duration-300">Florales</button>
+        <button data-filter="amaderado" class="filter-btn text-xs font-semibold px-4 py-2 rounded-full border border-stone-300 text-stone-600 hover:text-stone-900 hover:border-amber-500 transition duration-300">Amaderados</button>
+      </div>
+    </div>
+
+    <!-- Rejilla de Perfumes -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" id="perfumeGrid">
+
+      <!-- TARJETA 1 -->
+      <article data-category="dulce" 
+               data-name="Vanilla Gold" 
+               data-price="$45.00" 
+               data-type="Eau de Parfum • 100ml" 
+               data-img="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=600&q=80"
+               class="perfume-card group bg-white rounded-2xl overflow-hidden border border-stone-200/80 shadow-sm flex flex-col justify-between">
+        <div>
+          <div class="relative h-64 overflow-hidden bg-stone-100">
+            <img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=600&q=80" alt="Vanilla Gold" class="card-img w-full h-full object-cover">
+            <span class="absolute top-4 right-4 bg-amber-900/80 text-amber-200 border border-amber-500/30 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider backdrop-blur-md">
+              Cálido / Dulce
+            </span>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-serif font-bold text-stone-900 group-hover:text-amber-600 transition duration-300">Vanilla Gold</h3>
+            <p class="text-stone-500 text-xs mb-3 font-medium">Eau de Parfum • 100ml</p>
+            <p class="text-stone-600 text-sm leading-relaxed mb-4 font-normal">
+              Una fragancia envolvente donde la calidez de la vainilla noble se funde con toques de ámbar y canela.
+            </p>
+            <div class="border-t border-stone-100 pt-3 text-xs space-y-1.5 text-stone-500">
+              <p><strong class="text-stone-700">Notas:</strong> Vainilla, Ámbar, Canela</p>
+              <p><strong class="text-stone-700">Ideal para:</strong> Noches, Citas, Tiempo frío</p>
+            </div>
+          </div>
+        </div>
+        <div class="p-6 pt-0">
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-2xl font-bold font-serif text-amber-700">$45.00</span>
+            <span class="text-[11px] text-emerald-700 bg-emerald-50 font-medium px-2.5 py-1 rounded-md border border-emerald-200">Disponible</span>
+          </div>
+          <button onclick="orderViaWhatsApp(this)" class="ws-btn w-full bg-emerald-600 hover:bg-emerald-500 text-white font-semibold py-3 px-4 rounded-xl flex items-center justify-center gap-2 text-sm shadow-md transition duration-300">
+            <i data-lucide="message-circle" class="w-4 h-4"></i> Pedir por WhatsApp
+          </button>
+        </div>
+      </article>
+
+      <!-- TARJETA 2 -->
+      <article data-category="fresco" 
+               data-name="Aqua Intense" 
+               data-price="$40.00" 
+               data-type="Eau de Toilette • 100ml" 
+               data-img="https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=600&q=80"
+               class="perfume-card group bg-white rounded-2xl overflow-hidden border border-stone-200/80 shadow-sm flex flex-col justify-between">
+        <div>
+          <div class="relative h-64 overflow-hidden bg-stone-100">
+            <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=600&q=80" alt="Aqua Intense" class="card-img w-full h-full object-cover">
+            <span class="absolute top-4 right-4 bg-sky-900/80 text-sky-200 border border-sky-500/30 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider backdrop-blur-md">
+              Fresco / Cítrico
+            </span>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-serif font-bold text-stone-900 group-hover:text-amber-600 transition duration-300">Aqua Intense</h3>
+            <p class="text-stone-500 text-xs mb-3 font-medium">Eau de Toilette • 100ml</p>
+            <p class="text-stone-600 text-sm leading-relaxed mb-4 font-normal">
+              Una ráfaga de frescura inmediata que evoca la brisa marina y la vitalidad de los cítricos mediterráneos.
+            </p>
+            <div class="border-t border-stone-100 pt-3 text-xs space-y-1.5 text-stone-500">
+              <p><strong class="text-stone-700">Notas:</strong> Cítricos, Acordes Marinos, Cedro</p>
+              <p><strong class="text-stone-700">Ideal para:</strong> Uso diario, Días calurosos</p>
+            </div>
+          </div>
+        </div>
+        <div class="p-6 pt-0">
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-2xl font-bold font-serif text-amber-700">$40.00</span>
+            <span class="text-[11px] text-emerald-700 bg-emerald-50 font-medium px-2.5 py-1 rounded-md border border-emerald-200">Disponible</span>
+          </div>
+          <button onclick="orderViaWhatsApp(this)" class="ws-btn w-full bg-emerald-600 hover:bg-emerald-500 text-white font-semibold py-3 px-4 rounded-xl flex items-center justify-center gap-2 text-sm shadow-md transition duration-300">
+            <i data-lucide="message-circle" class="w-4 h-4"></i> Pedir por WhatsApp
+          </button>
+        </div>
+      </article>
+
+      <!-- TARJETA 3 -->
+      <article data-category="floral" 
+               data-name="Rose Bloom" 
+               data-price="$48.00" 
+               data-type="Eau de Parfum • 100ml" 
+               data-img="https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?auto=format&fit=crop&w=600&q=80"
+               class="perfume-card group bg-white rounded-2xl overflow-hidden border border-stone-200/80 shadow-sm flex flex-col justify-between">
+        <div>
+          <div class="relative h-64 overflow-hidden bg-stone-100">
+            <img src="https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?auto=format&fit=crop&w=600&q=80" alt="Rose Bloom" class="card-img w-full h-full object-cover">
+            <span class="absolute top-4 right-4 bg-rose-900/80 text-rose-200 border border-rose-500/30 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider backdrop-blur-md">
+              Floral / Elegante
+            </span>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-serif font-bold text-stone-900 group-hover:text-amber-600 transition duration-300">Rose Bloom</h3>
+            <p class="text-stone-500 text-xs mb-3 font-medium">Eau de Parfum • 100ml</p>
+            <p class="text-stone-600 text-sm leading-relaxed mb-4 font-normal">
+              Un bouquet de flores frescas recién cortadas que evoluciona hacia un fondo suave, sofisticado y delicado.
+            </p>
+            <div class="border-t border-stone-100 pt-3 text-xs space-y-1.5 text-stone-500">
+              <p><strong class="text-stone-700">Notas:</strong> Jazmín Silvestre, Rosa de Mayo, Almizcle</p>
+              <p><strong class="text-stone-700">Ideal para:</strong> Eventos de día, Primavera</p>
+            </div>
+          </div>
+        </div>
+        <div class="p-6 pt-0">
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-2xl font-bold font-serif text-amber-700">$48.00</span>
+            <span class="text-[11px] text-emerald-700 bg-emerald-50 font-medium px-2.5 py-1 rounded-md border border-emerald-200">Disponible</span>
+          </div>
+          <button onclick="orderViaWhatsApp(this)" class="ws-btn w-full bg-emerald-600 hover:bg-emerald-500 text-white font-semibold py-3 px-4 rounded-xl flex items-center justify-center gap-2 text-sm shadow-md transition duration-300">
+            <i data-lucide="message-circle" class="w-4 h-4"></i> Pedir por WhatsApp
+          </button>
+        </div>
+      </article>
+
+      <!-- TARJETA 4 -->
+      <article data-category="amaderado" 
+               data-name="Wood & Oud" 
+               data-price="$52.00" 
+               data-type="Eau de Parfum • 100ml" 
+               data-img="https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&w=600&q=80"
+               class="perfume-card group bg-white rounded-2xl overflow-hidden border border-stone-200/80 shadow-sm flex flex-col justify-between">
+        <div>
+          <div class="relative h-64 overflow-hidden bg-stone-100">
+            <img src="https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&w=600&q=80" alt="Wood & Oud" class="card-img w-full h-full object-cover">
+            <span class="absolute top-4 right-4 bg-orange-900/80 text-orange-200 border border-orange-500/30 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider backdrop-blur-md">
+              Amaderado / Intenso
+            </span>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-serif font-bold text-stone-900 group-hover:text-amber-600 transition duration-300">Wood & Oud</h3>
+            <p class="text-stone-500 text-xs mb-3 font-medium">Eau de Parfum • 100ml</p>
+            <p class="text-stone-600 text-sm leading-relaxed mb-4 font-normal">
+              Intensa y mística. Combina la solidez del sándalo con matices ahumados de madera de oud y cuero suave.
+            </p>
+            <div class="border-t border-stone-100 pt-3 text-xs space-y-1.5 text-stone-500">
+              <p><strong class="text-stone-700">Notas:</strong> Sándalo, Madera de Oud, Cuero</p>
+              <p><strong class="text-stone-700">Ideal para:</strong> Eventos nocturnos, Clima templado</p>
+            </div>
+          </div>
+        </div>
+        <div class="p-6 pt-0">
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-2xl font-bold font-serif text-amber-700">$52.00</span>
+            <span class="text-[11px] text-emerald-700 bg-emerald-50 font-medium px-2.5 py-1 rounded-md border border-emerald-200">Disponible</span>
+          </div>
+          <button onclick="orderViaWhatsApp(this)" class="ws-btn w-full bg-emerald-600 hover:bg-emerald-500 text-white font-semibold py-3 px-4 rounded-xl flex items-center justify-center gap-2 text-sm shadow-md transition duration-300">
+            <i data-lucide="message-circle" class="w-4 h-4"></i> Pedir por WhatsApp
+          </button>
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <!-- Pie de página -->
+  <footer class="bg-stone-900 border-t border-amber-500/20 text-stone-400 text-center py-8 px-6 text-xs mt-16">
+    <div class="max-w-4xl mx-auto space-y-3">
+      <p class="text-amber-200 font-serif text-sm">
+        Catálogo Oficial de Perfumes — <span class="text-amber-400 font-bold">Loida Puma</span>
+      </p>
+      <p class="text-stone-400">
+        © 2026 Loida Puma Perfumería. Todos los derechos reservados.
+      </p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
