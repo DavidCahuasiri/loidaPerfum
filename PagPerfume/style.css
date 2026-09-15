@@ -1,46 +1,1214 @@
+/* =========================================================
+   ESTILOS GENERALES
+   ========================================================= */
+
 body {
   font-family: 'Montserrat', sans-serif;
 }
 
-h1, h2, h3, .font-serif {
+h1,
+h2,
+h3,
+.font-serif {
   font-family: 'Cinzel', serif;
 }
 
+
+/* =========================================================
+   TARJETAS DE PRODUCTOS
+   ========================================================= */
+
 .perfume-card {
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
-              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
-              border-color 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+
   will-change: transform;
+  height: 100%;
 }
 
 .perfume-card:hover {
-  transform: translateY(-12px);
-  box-shadow: 0 20px 30px -8px rgba(180, 130, 20, 0.15),
-              0 10px 15px -3px rgba(0, 0, 0, 0.08);
-  border-color: rgba(217, 119, 6, 0.4);
+  transform: translateY(-6px);
+
+  box-shadow:
+    0 18px 35px rgba(0, 0, 0, 0.10);
+
+  border-color: rgba(217, 119, 6, 0.25);
 }
 
+
+/* =========================================================
+   IMAGEN DE PRODUCTO
+   ========================================================= */
+
 .card-img {
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  transition:
+    transform 0.5s ease;
 }
 
 .perfume-card:hover .card-img {
-  transform: scale(1.08);
+  transform: scale(1.06);
 }
 
+
+/* =========================================================
+   BOTÓN WHATSAPP
+   ========================================================= */
+
 .ws-btn {
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
+  position: relative;
+  overflow: hidden;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+
+  box-shadow:
+    0 4px 12px rgba(16, 185, 129, 0.25);
+}
+
+.ws-btn::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background: rgba(255, 255, 255, 0.08);
+
+  transform: translateX(-100%);
+
+  transition:
+    transform 0.3s ease;
+}
+
+.ws-btn:hover::before {
+  transform: translateX(0);
 }
 
 .ws-btn:hover {
-  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
   transform: translateY(-2px);
+
+  box-shadow:
+    0 6px 20px rgba(16, 185, 129, 0.4);
+}
+
+.ws-btn i,
+.ws-btn span,
+.ws-btn {
+  position: relative;
+  z-index: 1;
+}
+
+
+/* =========================================================
+   FILTROS
+   ========================================================= */
+
+.filter-btn {
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.2s ease;
+}
+
+.filter-btn:hover {
+  transform: translateY(-1px);
 }
 
 .filter-btn.active {
   background-color: #fef3c7;
+
   border-color: #d97706;
+
   color: #92400e;
-  box-shadow: 0 2px 8px rgba(217, 119, 6, 0.15);
+
+  box-shadow:
+    0 2px 8px rgba(217, 119, 6, 0.15);
 }
+
+
+/* =========================================================
+   CATEGORÍAS PRINCIPALES
+   ========================================================= */
+
+.main-category-btn {
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.2s ease;
+}
+
+.main-category-btn:hover {
+  transform: translateY(-1px);
+}
+
+.main-category-btn.active {
+  background-color: #292524;
+
+  border-color: #d97706;
+
+  color: #fef3c7;
+
+  box-shadow:
+    0 3px 10px rgba(120, 53, 15, 0.15);
+}
+
+
+/* =========================================================
+   BUSCADOR Y CATEGORÍAS FIJOS
+   ========================================================= */
+
+.sticky-filters {
+  position: sticky;
+
+  top: 0;
+
+  z-index: 40;
+
+  padding: 1rem 0 0.75rem;
+
+  background: rgba(250, 250, 249, 0.96);
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border-bottom: 1px solid rgba(120, 113, 108, 0.15);
+
+  margin-bottom: 2rem;
+}
+
+
+/* =========================================================
+   SECCIONES DENTRO DEL FILTRO
+   ========================================================= */
+
+.main-categories-section {
+  margin-top: 1.25rem;
+}
+
+.subcategory-section {
+  margin-top: 1.25rem;
+}
+
+
+/* =========================================================
+   MODAL
+   ========================================================= */
+
+.product-modal {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 9999;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 1rem;
+
+  opacity: 1;
+
+  visibility: visible;
+
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+}
+
+
+/*
+   Cuando JavaScript agrega "hidden",
+   el modal permanece completamente oculto.
+*/
+
+.product-modal.hidden {
+  display: none;
+}
+
+
+/* =========================================================
+   FONDO OSCURO DEL MODAL
+   ========================================================= */
+
+.product-modal-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    rgba(28, 25, 23, 0.78);
+
+  backdrop-filter: blur(5px);
+
+  -webkit-backdrop-filter: blur(5px);
+}
+
+
+/* =========================================================
+   CONTENEDOR PRINCIPAL
+   ========================================================= */
+
+.product-modal-container {
+  position: relative;
+
+  z-index: 1;
+
+  width: 100%;
+
+  max-width: 1050px;
+
+  max-height: 92vh;
+
+  overflow-y: auto;
+
+  background: #fafaf9;
+
+  border: 1px solid rgba(217, 119, 6, 0.25);
+
+  border-radius: 1.5rem;
+
+  box-shadow:
+    0 30px 70px rgba(0, 0, 0, 0.35);
+
+  animation:
+    modalAppear 0.3s ease-out;
+}
+
+
+/* =========================================================
+   ANIMACIÓN DEL MODAL
+   ========================================================= */
+
+@keyframes modalAppear {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(20px)
+      scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+
+}
+
+
+/* =========================================================
+   BOTÓN CERRAR
+   ========================================================= */
+
+.product-modal-close {
+  position: absolute;
+
+  top: 1rem;
+
+  right: 1rem;
+
+  z-index: 10;
+
+  width: 2.5rem;
+
+  height: 2.5rem;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 999px;
+
+  border: 1px solid rgba(120, 113, 108, 0.25);
+
+  background: rgba(255, 255, 255, 0.92);
+
+  color: #44403c;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.product-modal-close:hover {
+  background: #292524;
+
+  color: #fef3c7;
+
+  border-color: #d97706;
+
+  transform: rotate(90deg);
+}
+
+.product-modal-close svg {
+  width: 1.15rem;
+
+  height: 1.15rem;
+}
+
+
+/* =========================================================
+   CONTENIDO DEL MODAL
+   ========================================================= */
+
+.product-modal-content {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  min-height: 550px;
+}
+
+
+/* =========================================================
+   CONTENEDOR DE IMAGEN
+   ========================================================= */
+
+.product-modal-image-container {
+  position: relative;
+
+  min-height: 550px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f5f5f4,
+      #e7e5e4
+    );
+}
+
+
+/* Decoración dorada */
+
+.product-modal-image-container::before {
+  content: "";
+
+  position: absolute;
+
+  width: 280px;
+
+  height: 280px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(245, 158, 11, 0.08);
+
+  filter: blur(35px);
+}
+
+
+/* Imagen */
+
+.product-modal-image {
+  position: relative;
+
+  z-index: 1;
+
+  width: 100%;
+
+  height: 100%;
+
+  min-height: 550px;
+
+  object-fit: contain;
+
+  padding: 2.5rem;
+
+  transition:
+    transform 0.5s ease;
+}
+
+
+/* =========================================================
+   INFORMACIÓN DEL PRODUCTO
+   ========================================================= */
+
+.product-modal-info {
+  padding: 3.5rem 3rem 3rem;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+}
+
+
+/* =========================================================
+   FAMILIA
+   ========================================================= */
+
+.product-modal-family {
+  display: inline-flex;
+
+  width: fit-content;
+
+  padding: 0.35rem 0.8rem;
+
+  margin-bottom: 0.9rem;
+
+  border-radius: 999px;
+
+  background: #fffbeb;
+
+  border: 1px solid #fde68a;
+
+  color: #92400e;
+
+  font-size: 0.7rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   NOMBRE
+   ========================================================= */
+
+.product-modal-name {
+  margin: 0;
+
+  color: #1c1917;
+
+  font-family: 'Cinzel', serif;
+
+  font-size: 2rem;
+
+  line-height: 1.25;
+
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   PRESENTACIÓN
+   ========================================================= */
+
+.product-modal-type {
+  margin-top: 0.6rem;
+
+  color: #78716c;
+
+  font-size: 0.85rem;
+
+  font-weight: 500;
+}
+
+
+/* =========================================================
+   PRECIO
+   ========================================================= */
+
+.product-modal-price-container {
+  display: flex;
+
+  align-items: baseline;
+
+  gap: 0.8rem;
+
+  margin-top: 1.5rem;
+
+  padding-bottom: 1.25rem;
+
+  border-bottom: 1px solid #e7e5e4;
+}
+
+.product-modal-price-label {
+  color: #78716c;
+
+  font-size: 0.75rem;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.08em;
+
+  font-weight: 600;
+}
+
+.product-modal-price {
+  color: #92400e;
+
+  font-size: 1.8rem;
+
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   SECCIONES DE INFORMACIÓN
+   ========================================================= */
+
+.product-modal-section {
+  margin-top: 1.25rem;
+}
+
+.product-modal-section h3 {
+  margin: 0 0 0.35rem;
+
+  color: #292524;
+
+  font-family: 'Montserrat', sans-serif;
+
+  font-size: 0.75rem;
+
+  font-weight: 700;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.08em;
+}
+
+.product-modal-section p {
+  margin: 0;
+
+  color: #57534e;
+
+  font-size: 0.85rem;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   DISPONIBILIDAD
+   ========================================================= */
+
+.product-modal-availability {
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.5rem;
+
+  margin-top: 1.5rem;
+
+  color: #15803d;
+
+  font-size: 0.75rem;
+
+  font-weight: 600;
+}
+
+.product-modal-availability svg {
+  width: 1rem;
+
+  height: 1rem;
+}
+
+
+/* =========================================================
+   BOTÓN WHATSAPP DEL MODAL
+   ========================================================= */
+
+.product-modal-whatsapp {
+  width: 100%;
+
+  margin-top: 1.25rem;
+
+  padding: 0.9rem 1.25rem;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 0.6rem;
+
+  border: none;
+
+  border-radius: 0.9rem;
+
+  background: #16a34a;
+
+  color: white;
+
+  font-family: 'Montserrat', sans-serif;
+
+  font-size: 0.85rem;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 5px 15px rgba(22, 163, 74, 0.22);
+
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.product-modal-whatsapp:hover {
+  background: #15803d;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 8px 20px rgba(22, 163, 74, 0.32);
+}
+
+.product-modal-whatsapp svg {
+  width: 1.1rem;
+
+  height: 1.1rem;
+}
+
+
+/* =========================================================
+   SCROLLBAR DEL MODAL
+   ========================================================= */
+
+.product-modal-container::-webkit-scrollbar {
+  width: 7px;
+}
+
+.product-modal-container::-webkit-scrollbar-track {
+  background: #f5f5f4;
+}
+
+.product-modal-container::-webkit-scrollbar-thumb {
+  background: #d6d3d1;
+
+  border-radius: 999px;
+}
+
+.product-modal-container::-webkit-scrollbar-thumb:hover {
+  background: #a8a29e;
+}
+
+
+/* =========================================================
+   RESPONSIVE — TABLET
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  .product-modal {
+    padding: 0.75rem;
+  }
+
+  .product-modal-container {
+    max-height: 94vh;
+
+    border-radius: 1.25rem;
+  }
+
+  .product-modal-content {
+    grid-template-columns: 1fr;
+
+    min-height: auto;
+  }
+
+  .product-modal-image-container {
+    min-height: 330px;
+
+    height: 330px;
+  }
+
+  .product-modal-image {
+    min-height: 330px;
+
+    height: 330px;
+
+    padding: 2rem;
+  }
+
+  .product-modal-info {
+    padding: 2rem 1.5rem 1.75rem;
+  }
+
+  .product-modal-name {
+    font-size: 1.6rem;
+
+    padding-right: 2rem;
+  }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — CELULAR
+   ========================================================= */
+
+@media (max-width: 640px) {
+
+  /* =======================================================
+     TARJETAS
+     ======================================================= */
+
+  .perfume-card:hover {
+    transform: none;
+  }
+
+  .perfume-card {
+    border-radius: 1rem;
+  }
+
+
+  /* =======================================================
+     FILTROS EN CELULAR
+     ======================================================= */
+
+  .sticky-filters {
+    position: static;
+
+    padding: 0;
+
+    margin-bottom: 1.5rem;
+
+    background: transparent;
+
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+
+    border-bottom: none;
+  }
+
+
+  /* =======================================================
+     BUSCADOR FIJO
+     ======================================================= */
+
+  .search-section {
+    position: sticky;
+
+    top: 0;
+
+    z-index: 50;
+
+    padding-top: 0.65rem;
+
+    padding-bottom: 0.6rem;
+
+    background: rgba(250, 250, 249, 0.98);
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    border-bottom: 1px solid rgba(120, 113, 108, 0.12);
+  }
+
+
+  /*
+     Ocultamos título y descripción
+     para ahorrar espacio.
+  */
+
+  .search-section h2,
+  .search-section p {
+    display: none;
+  }
+
+
+  /*
+     Buscador ocupa todo el ancho.
+  */
+
+  .search-section .relative {
+    width: 100%;
+  }
+
+
+  .search-section input {
+    height: 42px;
+
+    font-size: 0.85rem;
+  }
+
+
+  /* =======================================================
+     CATEGORÍAS PRINCIPALES FIJAS
+     ======================================================= */
+
+  .main-categories-section {
+    position: sticky;
+
+    top: 55px;
+
+    z-index: 49;
+
+    margin-top: 0;
+
+    padding-top: 0.55rem;
+
+    padding-bottom: 0.55rem;
+
+    background: rgba(250, 250, 249, 0.98);
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    border-bottom: 1px solid rgba(120, 113, 108, 0.15);
+  }
+
+
+  /*
+     Ocultamos "Categoría".
+  */
+
+  .main-categories-section > p {
+    display: none;
+  }
+
+
+  /*
+     Categorías desplazables horizontalmente.
+  */
+
+  #mainCategoryButtons {
+    display: flex;
+
+    flex-wrap: nowrap;
+
+    overflow-x: auto;
+
+    gap: 0.45rem;
+
+    padding: 0 0.25rem;
+
+    scrollbar-width: none;
+
+    -webkit-overflow-scrolling: touch;
+  }
+
+
+  #mainCategoryButtons::-webkit-scrollbar {
+    display: none;
+  }
+
+
+  /*
+     Los botones no se encogen.
+  */
+
+  #mainCategoryButtons .main-category-btn {
+    flex: 0 0 auto;
+
+    white-space: nowrap;
+
+    padding: 0.45rem 0.9rem;
+
+    font-size: 0.7rem;
+  }
+
+
+  /* =======================================================
+     SUBCATEGORÍAS
+     ======================================================= */
+
+  /*
+     Las subcategorías siguen el scroll normal.
+  */
+
+  .subcategory-section {
+    position: static;
+
+    margin-top: 1rem;
+
+    padding-top: 0;
+
+    background: transparent;
+  }
+
+
+  /* =======================================================
+     GRID DE PRODUCTOS
+     ======================================================= */
+
+  main > section[aria-label="Productos disponibles"] {
+    margin-top: 1.5rem;
+  }
+
+
+  /* =======================================================
+     MODAL COMPACTO PARA CELULAR
+     ======================================================= */
+
+  .product-modal {
+    padding: 0.35rem;
+  }
+
+
+  .product-modal-container {
+    width: 100%;
+
+    max-height: 94vh;
+
+    border-radius: 0.9rem;
+
+    overflow-y: auto;
+  }
+
+
+  /*
+     Imagen más pequeña para que
+     la información sea visible antes.
+  */
+
+  .product-modal-image-container {
+    min-height: 210px;
+
+    height: 210px;
+  }
+
+
+  .product-modal-image {
+    min-height: 210px;
+
+    height: 210px;
+
+    padding: 1rem;
+  }
+
+
+  /*
+     Información más compacta.
+  */
+
+  .product-modal-info {
+    padding: 1.15rem 1rem 1.1rem;
+  }
+
+
+  /* Familia */
+
+  .product-modal-family {
+    padding: 0.3rem 0.65rem;
+
+    margin-bottom: 0.55rem;
+
+    font-size: 0.62rem;
+  }
+
+
+  /* Nombre */
+
+  .product-modal-name {
+    font-size: 1.25rem;
+
+    line-height: 1.25;
+
+    padding-right: 2rem;
+  }
+
+
+  /* Presentación */
+
+  .product-modal-type {
+    margin-top: 0.35rem;
+
+    font-size: 0.75rem;
+  }
+
+
+  /* Precio */
+
+  .product-modal-price-container {
+    margin-top: 0.9rem;
+
+    padding-bottom: 0.85rem;
+
+    gap: 0.55rem;
+  }
+
+
+  .product-modal-price-label {
+    font-size: 0.65rem;
+  }
+
+
+  .product-modal-price {
+    font-size: 1.35rem;
+  }
+
+
+  /* =======================================================
+     INFORMACIÓN DEL PRODUCTO
+     ======================================================= */
+
+  .product-modal-section {
+    margin-top: 0.8rem;
+  }
+
+
+  .product-modal-section h3 {
+    margin-bottom: 0.2rem;
+
+    font-size: 0.68rem;
+  }
+
+
+  .product-modal-section p {
+    font-size: 0.75rem;
+
+    line-height: 1.5;
+  }
+
+
+  /* =======================================================
+     DISPONIBILIDAD
+     ======================================================= */
+
+  .product-modal-availability {
+    margin-top: 0.9rem;
+
+    font-size: 0.68rem;
+  }
+
+
+  .product-modal-availability svg {
+    width: 0.9rem;
+
+    height: 0.9rem;
+  }
+
+
+  /* =======================================================
+     BOTÓN WHATSAPP
+     ======================================================= */
+
+  .product-modal-whatsapp {
+    margin-top: 0.8rem;
+
+    padding: 0.75rem 1rem;
+
+    border-radius: 0.75rem;
+
+    font-size: 0.78rem;
+  }
+
+
+  .product-modal-whatsapp svg {
+    width: 1rem;
+
+    height: 1rem;
+  }
+
+
+  /* =======================================================
+     BOTÓN CERRAR
+     ======================================================= */
+
+  .product-modal-close {
+    width: 2rem;
+
+    height: 2rem;
+
+    top: 0.5rem;
+
+    right: 0.5rem;
+  }
+
+
+  .product-modal-close svg {
+    width: 1rem;
+
+    height: 1rem;
+  }
+
+}
+
+
+/* =========================================================
+   REDES SOCIALES
+   ========================================================= */
+
+.social-link {
+  width: 2.5rem;
+
+  height: 2.5rem;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 999px;
+
+  color: #d6d3d1;
+
+  border: 1px solid rgba(245, 158, 11, 0.25);
+
+  background: rgba(120, 53, 15, 0.15);
+
+  transition:
+    color 0.3s ease,
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.social-link:hover {
+  color: #fbbf24;
+
+  background: rgba(120, 53, 15, 0.35);
+
+  border-color: rgba(245, 158, 11, 0.6);
+
+  transform: translateY(-3px);
+}
+
+.social-link svg {
+  width: 1.15rem;
+
+  height: 1.15rem;
+}
+
+
+/* =========================================================
+   REDUCIR ANIMACIONES SI EL USUARIO LO PREFIERE
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .perfume-card,
+  .card-img,
+  .ws-btn,
+  .filter-btn,
+  .main-category-btn,
+  .product-modal,
+  .product-modal-container,
+  .product-modal-close,
+  .product-modal-whatsapp {
+    transition: none;
+
+    animation: none;
+  }
+
+}
+
