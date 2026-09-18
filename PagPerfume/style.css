@@ -1212,3 +1212,150 @@ h3,
 
 }
 
+/* =========================================================
+   ESTILOS PARA MODO OSCURO (Dark Mode)
+   ========================================================= */
+
+/* Fondo general y texto de la página */
+body.dark {
+  background-color: #121212 !important;
+  color: #e7e5e4 !important;
+}
+
+/* Buscador y filtros fijos */
+body.dark .sticky-filters,
+body.dark .search-section,
+body.dark .main-categories-section {
+  background: rgba(18, 18, 18, 0.95) !important;
+  border-color: rgba(217, 119, 6, 0.2) !important;
+}
+
+/* Títulos principales y del catálogo */
+body.dark #catalogTitle {
+  color: #fef3c7 !important;
+}
+
+body.dark #catalogDescription,
+body.dark .sticky-filters p {
+  color: #a8a29e !important;
+}
+
+/* Input del Buscador */
+body.dark #searchInput {
+  background-color: #1c1917 !important;
+  color: #f5f5f4 !important;
+  border-color: #44403c !important;
+}
+
+body.dark #searchInput::placeholder {
+  color: #78716c !important;
+}
+
+/* Botones de Filtros y Categorías en estado normal */
+body.dark .main-category-btn,
+body.dark .filter-btn {
+  background-color: #1c1917 !important;
+  color: #d6d3d1 !important;
+  border-color: #44403c !important;
+}
+
+body.dark .main-category-btn:hover,
+body.dark .filter-btn:hover {
+  border-color: #d97706 !important;
+  color: #fbbf24 !important;
+}
+
+/* Botones de Filtros en estado ACTIVO */
+body.dark .main-category-btn.active {
+  background-color: #ea580c !important;
+  color: #ffffff !important;
+  border-color: #f97316 !important;
+}
+
+body.dark .filter-btn.active {
+  background-color: #78350f !important;
+  color: #fef3c7 !important;
+  border-color: #d97706 !important;
+}
+
+/* Tarjetas de productos (se generan dinámicamente) */
+body.dark .perfume-card {
+  background-color: #1c1917 !important;
+  border-color: rgba(217, 119, 6, 0.2) !important;
+  color: #e7e5e4 !important;
+}
+
+body.dark .perfume-card h3 {
+  color: #fef3c7 !important;
+}
+
+/* Modal en Modo Oscuro */
+body.dark .product-modal-container {
+  background-color: #1c1917 !important;
+  border-color: rgba(217, 119, 6, 0.4) !important;
+}
+
+body.dark .product-modal-image-container {
+  background: linear-gradient(135deg, #292524, #1c1917) !important;
+}
+
+body.dark .product-modal-name {
+  color: #fef3c7 !important;
+}
+
+body.dark .product-modal-type,
+body.dark .product-modal-section p {
+  color: #d6d3d1 !important;
+}
+
+body.dark .product-modal-section h3,
+body.dark .product-modal-price-label {
+  color: #a8a29e !important;
+}
+
+body.dark .product-modal-close {
+  background: #292524 !important;
+  color: #fef3c7 !important;
+  border-color: #78716c !important;
+}
+
+body.dark .product-modal-close:hover {
+  background: #d97706 !important;
+  color: #ffffff !important;
+}
+
+/* Corrección para la caja de Características en Modo Oscuro */
+body.dark .perfume-card .bg-stone-50 {
+  background-color: #292524 !important; /* Un tono gris/cálido oscuro */
+  border-color: #44403c !important;
+}
+
+body.dark .perfume-card .bg-stone-50 p {
+  color: #d6d3d1 !important; /* Texto claro */
+}
+
+/* Corrección de la etiqueta superior (Familia: AMADERADO ELEGANTE) */
+body.dark .perfume-card span.bg-white\/90 {
+  background-color: rgba(28, 25, 23, 0.9) !important;
+  color: #fef3c7 !important;
+  border-color: rgba(217, 119, 6, 0.4) !important;
+}
+
+/* Corrección de la etiqueta Disponible */
+body.dark .perfume-card span.bg-green-50 {
+  background-color: rgba(20, 83, 45, 0.3) !important;
+  color: #4ade80 !important;
+  border-color: rgba(34, 197, 94, 0.3) !important;
+}
+
+/* Corrección del botón 'Ver detalles' */
+body.dark .perfume-card .detail-btn {
+  border-color: #57534e !important;
+  color: #e7e5e4 !important;
+}
+
+body.dark .perfume-card .detail-btn:hover {
+  border-color: #d97706 !important;
+  color: #fbbf24 !important;
+  background-color: rgba(217, 119, 6, 0.1) !important;
+}

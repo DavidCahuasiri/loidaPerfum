@@ -623,6 +623,9 @@ const catalogDescription =
 const subcategoryTitle =
   document.getElementById("subcategoryTitle");
 
+const themeToggle =
+  document.getElementById("themeToggle");
+
 
 /* =========================================================
    REFERENCIAS DEL MODAL
@@ -1622,12 +1625,109 @@ if (searchInput) {
 
 
 /* =========================================================
+   MODO OSCURO / CLARO
+   ========================================================= */
+
+function toggleDarkMode() {
+
+  const isDark =
+    document.body.classList.toggle("dark");
+
+
+  /* Guardar preferencia del usuario */
+
+  localStorage.setItem(
+    "theme",
+    isDark ? "dark" : "light"
+  );
+
+
+  /* Actualizar icono del botón */
+
+  const icon =
+    themeToggle
+      ? themeToggle.querySelector("i")
+      : null;
+
+
+  if (icon) {
+
+    icon.setAttribute(
+      "data-lucide",
+      isDark ? "sun" : "moon"
+    );
+
+
+    if (window.lucide) {
+
+      lucide.createIcons();
+
+    }
+
+  }
+
+}
+
+
+/* Cargar tema guardado o del sistema */
+
+function cargarTemaGuardado() {
+
+  const savedTheme =
+    localStorage.getItem("theme");
+
+  const prefersDark =
+    window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+
+  if (
+    savedTheme === "dark" ||
+    (!savedTheme && prefersDark)
+  ) {
+
+    document.body.classList.add("dark");
+
+    const icon =
+      themeToggle
+        ? themeToggle.querySelector("i")
+        : null;
+
+
+    if (icon) {
+
+      icon.setAttribute("data-lucide", "sun");
+
+    }
+
+  }
+
+}
+
+
+/* Evento para el botón del tema */
+
+if (themeToggle) {
+
+  themeToggle.addEventListener(
+    "click",
+    toggleDarkMode
+  );
+
+}
+
+
+/* =========================================================
    INICIALIZACIÓN
    ========================================================= */
 
 document.addEventListener(
   "DOMContentLoaded",
   () => {
+
+    /* Cargar tema oscuro/claro guardado */
+
+    cargarTemaGuardado();
+
 
     /* Filtros iniciales */
 
@@ -1647,7 +1747,9 @@ document.addEventListener(
     /* Crear iconos */
 
     if (window.lucide) {
+
       lucide.createIcons();
+
     }
 
 
